@@ -51,9 +51,9 @@ A Nette framework felépítése:
 	*A [router](https://doc.nette.org/cs/2.4/routing) a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).*
 
 
-###Technikai kitérő: milyen automatizációs logikával hívja be a presenter a View-t?
+### Technikai kitérő: milyen automatizációs logikával hívja be a presenter a View-t?
 
-[Presenter és Latte a mappa struktúrában](presenter-latte.png)
+![Presenter és Latte a mappa struktúrában](presenter-latte.png)
 
 A tutorial folytatása előtt röviden kitérek arra, hogy milyen logika mentén hívja be a presenter a hozzá tartozó View-t.
 Az app/presenters mappába fogjuk menteni a presentereinket. Az első két presenterünk a tutorialban HomepagePresenter és PostPresenter lesz, de a presenterek általános elnevezése az, hogy “AkármiPresenter”. A presenterek az objektum orientált programozásban megismert osztályok lesznek, ezért kezdődik a nevük nagy kezdőbetűvel.
