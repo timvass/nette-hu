@@ -28,7 +28,7 @@
 
 ### Főoldal
 
-Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírjuk a böngészőnkbe a http://localhost/nette-blog/www/ címet, és a "Congratulations!" ablakot látjuk, akkor már jók vagyunk, működik a Nette applikációnk :)
+Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírjuk a böngészőnkbe a http://localhost/nette-blog/www/ címet, és a "Congratulations!" című ablakot látjuk (fotó lejjebb), akkor már jók vagyunk, működik a Nette applikációnk :)
 
 ![Nette welcome - Congratulations!](https://files.nette.org/git/doc-2.4/welcome-620.jpg)
 
