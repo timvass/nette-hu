@@ -33,4 +33,17 @@ Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírj
 ![Nette welcome - Congratulations!](https://files.nette.org/git/doc-2.4/welcome-620.jpg)
 
 A Nette framework felépítése:
-![Nette framework](05_web_project felépítése_5.abra.jpg)
+![Nette framework](/05_web_project felépítése_5.abra.jpg)
+
+* A nette-blog/www könyvtárunk lesz az, ami majd kívülről bárki számára elérhető. Ebben található az index.php, amiben csak az az egy parancs van, hogy az összes Nette tartalmat behívja az app/bootstrapon keresztül. A www mappa szolgál az összes front-endet alkotó eszköz mentésére. A képek mentésére, a JavaScript fájlok, CSS-ek, inokok, fontok és más fájlok elhelyezésére. Csak ez az egy mappa lesz majd nyilvános, úgyhogy a készülő applikációnk gyökérkönyvtárát majd úgy állítjuk be, hogy ide mutasson (ezt az Apache beállításánál lehet megoldani a .htaccess-ben, de ezt majd később állítjuk be).
+
+* A web project felépítési ábrán az időnk nagy részében az app/ mappában fogunk dolgozni. Ebben a mappában található a bootstrap.php (https://doc.nette.org/en/2.4/bootstrap). Az előbb már említettük, hogy a nyilvánosan elérhető index.php a nyilvánosság előtt rejtve levő bootstrap php-t hívja be. Ez a bootstrap.php az applikációnk indítókulcsa.
+	
+	* Behívja a config.neon és a config.local neon 	beállításokat és azok alapján állítja be az applikációnkat 	(pl. az adatbázis beállításához a 	jelszónkat is innen veszi) 	
+	
+	* Behívja a DI konténert (* ez a Data 	Injection container, először a $configurator->add... paranccsal 	töltjük, majd a $configurator→createContainer() metódussal 	indítjuk). Majd a későbbiekben észrevesszük, hogy a 	Nettében nem kell include-ot vagy require-t használni, ha egy 	HTML-t szeretnénk a php fájlhoz megjeleníteni. A Nette 	automatikusan behívja a presenterrel megegyező nevű sablont (amit 	latte-nak hív), ha azt a megfelelő helyre tesszük és 	megfelelően nevezzük el- az automatikus hívások részleteit az 	autoloading/robot loader alatt olvashatjuk el ( 	https://doc.nette.org/cs/2.4/robotloader). 		
+	
+	* A bootstrap.php-ből tölt be a speciális Nette debuggoló eszköz a Tracy (https://tracy.nette.org/cs/) 		
+
+	* Ez gondoskodik a cache-elésről, a routoelést is ez 	biztosítja be. A routolás azt jelenti, hogy, az emberek számára könnyebben emészthető (és jobb SEO-t jelentő) url címeket is 	tud készíteni a Nette automatizáltan 	(https://doc.nette.org/cs/2.4/routing. 	A router a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).
+
