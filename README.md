@@ -96,7 +96,7 @@ A továbbiakban a view-ket template-nek vagy latte fájloknak is fogjuk nevezni 
 	* app/presenters/templates/@layout.latte és az 
 	* app/presenters/templates/Akármi/….latte -t.
 
-* **Második körben értsük meg a teljes elnevezést és figyeljük meg a metódust is**, az AkarmiPresenterben lévő renderBármi() metódushoz a Nette által automatikusan behívott Latte, tehát:
+* **Második körben értsük meg a teljes elnevezést és figyeljük meg a metódust is**, az AkarmiPresenterben lévő renderBármi() metódushoz a Nette által automatikusan behívott sablonok és a presenter a következő:
 	* app/presenters/AkarmiPresenter.php -ban lévő “public function renderBarmi()” behívja először az 	
 	* app/presenters/templates/@layout.latte-t és ezután az 
 	* app/presenters/templates/Akármi/barmi.latte -t.
