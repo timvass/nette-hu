@@ -32,3 +32,5 @@ Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírj
 
 ![GitHub Logo](/images/logo.png)
 Format: ![Alt Text](url)
+
+<span style="color:blue">some *This is Blue italic.* text</span>
