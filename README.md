@@ -33,7 +33,7 @@ Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírj
 ![Nette welcome - Congratulations!](https://files.nette.org/git/doc-2.4/welcome-620.jpg)
 
 A Nette framework felépítése:
-![Nette framework](05_web_project felépítése_5.abra.jpg)
+![Nette framework](https://raw.githubusercontent.com/timvass/nette-hu/05_web_project felépítése_5.abra.jpg)
 
 * A nette-blog/www könyvtárunk lesz az, ami majd kívülről bárki számára elérhető. Ebben található az index.php, amiben csak az az egy parancs van, hogy az összes Nette tartalmat behívja az app/bootstrapon keresztül. A www mappa szolgál az összes front-endet alkotó eszköz mentésére. A képek mentésére, a JavaScript fájlok, CSS-ek, inokok, fontok és más fájlok elhelyezésére. Csak ez az egy mappa lesz majd nyilvános, úgyhogy a készülő applikációnk gyökérkönyvtárát majd úgy állítjuk be, hogy ide mutasson (ezt az Apache beállításánál lehet megoldani a .htaccess-ben, de ezt majd később állítjuk be).
 
