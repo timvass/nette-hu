@@ -51,7 +51,7 @@ A Nette framework felépítése:
 	*A [router](https://doc.nette.org/cs/2.4/routing) a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).*
 
 
-### 2.1 Technikai kitérő 1: mi az a presenter és mi az a view? Gyorstalpaló MVP
+### *2.1 Technikai kitérő 1: mi az a presenter és mi az a view? Gyorstalpaló MVP*
 
 * Hasznos források a témában:
 	* https://doc.nette.org/cs/2.4/quickstart (ez az eredeti Nette tutorial)
@@ -79,7 +79,7 @@ Még kidolgozottabb architektúra az MVC, amely a webfejlesztésben egy igen gya
 Tehát junior szavakkal a lényeg, hogy a **Nette egy MVP framework. Az MVP a model, view és presenter szavak rövidítése.** A Quickstart tutorial elején csak presenterrel és view-vel fogunk dolgozni, a tutorial vége felé már modelünk is lesz. **A view a front-end réteg. A model réteg tárolja az üzleti logikát és az kommunikál majd az adatbázissal. A presenterben pedig minden más lesz, elsősorban a front-end rétegünk működéséhez tartozó logika.** Hogy mi a különbség az MVC és az MVP modellek Presentere és Controllere közt? Maga David Grudl a Nette vezető fejlesztője és atyja is csak annyit szokott mondani az előadásain, hogy “hasonló a kettő”. 
 
 
-### 2.2 Technikai kitérő 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?
+### *2.2 Technikai kitérő 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?*
 
 ![Presenter és Latte a mappa struktúrában](presenter-latte.png)
 
@@ -87,20 +87,18 @@ A tutorial folytatása előtt röviden kitérek arra is, hogy milyen logika ment
 
 **Az app/presenters mappába mantjük a presentereket.** Az első két presenter, amit majd elkészítünk a tutorial következő, 3. pontjában, a HomepagePresenter és PostPresenter lesz. A presenterek általános elnevezése “AkármiPresenter”. A presenterek az objektum orientált programozásban megismert osztályok, ezért kezdődik a nevük nagy kezdőbetűvel.
 
+A továbbiakban a view-ket template-nek vagy latte fájloknak is fogjuk nevezni (Ezt tisztázzuk, hogy ne vesszünk el a szakkifejezések rengetegében mindjárt a legelején)
 
-A továbbiakban a view-ket template-nek vagy latte fájloknak fogjuk nevezni (hogy ne vesszünk el a szakkifejezések rengetegében mindjárt a legelején)
-
-
-Minden presenter automatikusan az alap template-et hívja be, ami a @layout.latte. Ebbe tesszük a html doctype meghatározást, a head-et a css-szel, a html bodyban a headert (fejléc) és a footert (lábléc) és ezen kívül a minden egyes oldalon ismétlődő egyéb front-end elemeket is ide tesszük be. Majd ebbe az általános template-be a presenter behívja a speciálisan csak hozzá tartozó template-et is. Szóval az app/presenters/ HomepagePresenterhez tartozó egyedi latte fájlt a RobotLoader a presenters/templates/Homepage mappában fogja keresni. Hogy milyen nevű latte fájlt fog keresni a mappában, azt az adott presenterben a metódus neve adja meg. Ha a HomepagePresenter.php presenteremben egy renderDefault nevű metódust írok, akkor a RobotLoader a default nevű lattet fogja előkeresni. Ha renderShow nevű a metódusom, akkor pedig a show.lattet keres ki hozzá.
-
-
+**Minden presenter automatikusan az alap template-et hívja be, ami a @layout.latte.** Ebbe tesszük a html doctype meghatározást, a head-et a css-szel, a html bodyban a headert (fejléc) és a footert (lábléc) és ezen kívül a minden egyes oldalon ismétlődő egyéb front-end elemeket is ide tesszük be. **Majd ebbe az általános template-be a presenter behívja a speciálisan csak hozzá tartozó template-et is.** Szóval az app/presenters/ HomepagePresenterhez tartozó egyedi latte fájlt a **RobotLoader** a presenters/templates/Homepage mappában fogja keresni. Hogy milyen nevű latte fájlt fog keresni a mappában, azt az adott presenterben a metódus neve adja meg. Ha a HomepagePresenter.php presenteremben egy renderDefault nevű metódust írok, akkor a RobotLoader a default nevű lattet fogja előkeresni. Ha renderShow nevű a metódusom, akkor pedig a show.lattet keres ki hozzá.
 	
-Az AkarmiPresenter és a hozzá tartozó Lattek helye, tehát:
-app/presenters/AkarmiPresenter.php és az app/presenters/templates/@layout.latte és az app/presenters/templates/Akármi/….latte -t.
+* **Első körben értsük meg a mappa struktúrát: az AkarmiPresenter és a hozzá tartozó Lattek helye:**
+	* app/presenters/AkarmiPresenter.php és az 
+	* app/presenters/templates/@layout.latte és az 
+	* app/presenters/templates/Akármi/….latte -t.
 
-
-
-Ha még a metódust is belevesszük, akkor az AkarmiPresenterben lévő renderBármi metódushoz a Nette által automatikusan behívott Latte, tehát:
-app/presenters/AkarmiPresenter.php -ban lévő “public function renderBarmi(){}” behívja először az app/presenters/templates/@layout.latte-t és ezután az app/presenters/templates/Akármi/barmi.latte -t.
+* **Második körben értsük meg a teljes elnevezést és figyeljük meg a metódust is**, az AkarmiPresenterben lévő renderBármi() metódushoz a Nette által automatikusan behívott Latte, tehát:
+	* app/presenters/AkarmiPresenter.php -ban lévő “public function renderBarmi()” behívja először az 	
+	* app/presenters/templates/@layout.latte-t és ezután az 
+	* app/presenters/templates/Akármi/barmi.latte -t.
 
 
