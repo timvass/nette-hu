@@ -68,8 +68,15 @@ A Nette egy rétegzett architektúrájú, azon belül pedig MVC/MVP tervezési m
 
 **Szoftver architektúra minták** (forrás: http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf - 46.oldal):A következő táblázatban és a hozzá tartozó leírásban láthatunk néhány szót a megfelelő szoftver architektúra minta választásról. Minden applikációhoz más-más szoftver architektúra lehet alkalmas. 
 
-**Rétegzett szoftver architektúra** (a következő bekezdések forrása [ELTE jegyzet](http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf): 
+**Rétegzett szoftver architektúrák** (a következő h§rom bekezdés forrása a megjellölt [ELTE jegyzet](http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf) ): 
 
+A legegyszerűbb szoftver architektúra a monolitikus architektúra. Ez a gyakorlatban a legegyszerűbben úgy tudjuk elképzelni, hogy olyan mint egy spagetti kód, ahol egy home.php file-ban van a teljes “Home” oldal html-je és php-ja is. 
+
+Ennél szofisztikáltabb a kétrétegű architektúra. Összetettebb alkalmazásoknál a kétrétegű architektúra jobb, mint az egyrétegű. Jobban áttekinthető, ha a html és a php el van választva, könnyebben módosítható és újra felhasználható. Így sokkal egyszerűbb egy komponenst, például kérdőívet kivágni és behelyezni egy másik weboldalba. Egy ilyen modell-nézet architektúrában a modell tartalmazza az alkalmazáslogikát (amit üzleti logikának is neveznek) és dolgozik az adatokkal. A nézet tartalmazza a webapplikációnál azt, amit a felhasználó a monitoron lát. Tehát pl. a html-t, css-t javascriptet.
+
+Még kidolgozottabb architektúra az MVC, amely a webfejlesztésben egy igen gyakran használt tervezési minta. Ezt használják a nagyobb webes frameworkok, a Django (egészen pontosan ez a Python framework Model-Template-Viewt, de ez nagyon hasonlít hozzá), a Ruby on Rails és az Angular is.
+
+Tehát junior szavakkal a lényeg, hogy a **Nette egy MVP framework. Az MVP a model, view és presenter szavak rövidítése.** A Quickstart tutorial elején csak presenterrel és view-vel fogunk dolgozni, a tutorial vége felé már modelünk is lesz. **A view a front-end réteg. A model réteg tárolja az üzleti logikát és az kommunikál majd az adatbázissal. A presenterben pedig minden más lesz, elsősorban a front-end rétegünk működéséhez tartozó logika.** Hogy mi a különbség az MVC és az MVP modellek Presentere és Controllere közt? Maga David Grudl a Nette vezető fejlesztője és atyja is csak annyit szokott mondani az előadásain, hogy “hasonló a kettő”. 
 
 
 ### 2.2 Technikai kitérő 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?
