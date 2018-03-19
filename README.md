@@ -42,10 +42,36 @@ A Nette framework felépítése:
 	
 	* Behívja a **config.neon** és a **config.local.neon** 	beállításokat és azok alapján állítja be az applikációnkat 	(pl. az adatbázis beállításához a 	jelszónkat is innen veszi) 	
 	
-	* Behívja a **DI konténert** (* ez a Data 	Injection container, először a $configurator->add... paranccsal 	töltjük, majd a $configurator→createContainer() metódussal indítjuk). Majd a későbbiekben észrevesszük, hogy a 	Nettében nem kell include-ot vagy require-t használni, ha egy HTML-t szeretnénk a php fájlhoz megjeleníteni. A Nette automatikusan behívja a presenterrel megegyező nevű sablont (amit 	latte-nak hív), ha azt a megfelelő helyre tesszük és megfelelően nevezzük el- az automatikus hívások részleteit az [autoloading/robot loader](https://doc.nette.org/cs/2.4/robotloader) alatt olvashatjuk el. 		
+	* Behívja a **DI konténert** (* ez a Data 	Injection container, először a $configurator->add... paranccsal 	töltjük, majd a $configurator→createContainer() metódussal indítjuk). Majd a későbbiekben észrevesszük, hogy a 	Nettében **nem kell include-ot vagy require-t használni**, ha egy HTML-t szeretnénk a php fájlhoz megjeleníteni. A Nette automatikusan behívja a presenterrel megegyező nevű sablont (amit 	latte-nak hív), ha azt a megfelelő helyre tesszük és megfelelően nevezzük el- az automatikus hívások részleteit az [autoloading/robot loader](https://doc.nette.org/cs/2.4/robotloader) alatt olvashatjuk el. 		
 	
 	* A bootstrap.php-ből tölt be a speciális Nette **debuggoló eszköz a [Tracy](https://tracy.nette.org/cs/)** 	
 
 	* Ez gondoskodik a **cache-elésről** és a **routolást** is ez biztosítja be. A routolás azt jelenti, hogy, az emberek számára könnyebben emészthető (és jobb SEO helyezést jelentő) url címeket is tud készíteni a Nette. 	
-		*A [router](https://doc.nette.org/cs/2.4/routing) a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).*
+		
+	*A [router](https://doc.nette.org/cs/2.4/routing) a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).*
+
+
+###Technikai kitérő: milyen automatizációs logikával hívja be a presenter a View-t?
+
+[Presenter és Latte a mappa struktúrában](presenter-latte.png)
+
+A tutorial folytatása előtt röviden kitérek arra, hogy milyen logika mentén hívja be a presenter a hozzá tartozó View-t.
+Az app/presenters mappába fogjuk menteni a presentereinket. Az első két presenterünk a tutorialban HomepagePresenter és PostPresenter lesz, de a presenterek általános elnevezése az, hogy “AkármiPresenter”. A presenterek az objektum orientált programozásban megismert osztályok lesznek, ezért kezdődik a nevük nagy kezdőbetűvel.
+
+
+A továbbiakban a view-ket template-nek vagy latte fájloknak fogjuk nevezni (hogy ne vesszünk el a szakkifejezések rengetegében mindjárt a legelején)
+
+
+Minden presenter automatikusan az alap template-et hívja be, ami a @layout.latte. Ebbe tesszük a html doctype meghatározást, a head-et a css-szel, a html bodyban a headert (fejléc) és a footert (lábléc) és ezen kívül a minden egyes oldalon ismétlődő egyéb front-end elemeket is ide tesszük be. Majd ebbe az általános template-be a presenter behívja a speciálisan csak hozzá tartozó template-et is. Szóval az app/presenters/ HomepagePresenterhez tartozó egyedi latte fájlt a RobotLoader a presenters/templates/Homepage mappában fogja keresni. Hogy milyen nevű latte fájlt fog keresni a mappában, azt az adott presenterben a metódus neve adja meg. Ha a HomepagePresenter.php presenteremben egy renderDefault nevű metódust írok, akkor a RobotLoader a default nevű lattet fogja előkeresni. Ha renderShow nevű a metódusom, akkor pedig a show.lattet keres ki hozzá.
+
+
+	
+Az AkarmiPresenter és a hozzá tartozó Lattek helye, tehát:
+app/presenters/AkarmiPresenter.php és az app/presenters/templates/@layout.latte és az app/presenters/templates/Akármi/….latte -t.
+
+
+
+Ha még a metódust is belevesszük, akkor az AkarmiPresenterben lévő renderBármi metódushoz a Nette által automatikusan behívott Latte, tehát:
+app/presenters/AkarmiPresenter.php -ban lévő “public function renderBarmi(){}” behívja először az app/presenters/templates/@layout.latte-t és ezután az app/presenters/templates/Akármi/barmi.latte -t.
+
 
