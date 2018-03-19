@@ -2,7 +2,7 @@
 # Nette Framework Quickstart - első applikációm
 ## A hivatalos dokumentáció fordítása cseh nyelvről, kezdőbarát megjegyzésekkel kiegészítve és senior fejlesztők által lektorálva (nagyon nagy köszi mindenkinek :) )
 
-### Első lépések
+### 1. Első lépések
 
 * A legelső teendő indulás előtt egy gyors ellenőrzés, hogy a használt szerverünk teljesíti-e a Nette Framework futtatásához szükséges feltételeket (minimum 5.6.0-s PHP, a teljes feltételrendszer itt található: [Nette Requirements](https://doc.nette.org/en/2.4/requirements). Valószínűleg minden rendben lesz vele, de a biztonság kedvéért ellenőrizzük le, megéri.
 * A Nette Framework letöltéséhez a hivatalosan javasolt és ajánlott letöltési módszer a Composerrel való letöltés https://doc.nette.org/en/2.4/composer. Ha még nem találkoztunk a Composerrel, szánjunk rá pár percet, hogy megismerjük használatát. A Composer egy kifejezetten egyszerű és hasznos eszköz, ez a legelterjedtebb külső függőségeket kezelő program PHP-ra (PHP dependency manager). Mindent szükséges infót megtalálunk róla a [dokumentációjában]( https://getcomposer.org/doc/). Ha már a Composer dokumentációja alapján installáltuk a Composert a gépünkre (kezdők inkább globálisan installálják), akkor 
@@ -26,7 +26,7 @@
 
 
 
-### Főoldal
+### 2. Főoldal
 
 Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírjuk a böngészőnkbe a http://localhost/nette-blog/www/ címet, és a "Congratulations!" című ablakot látjuk (fotó lejjebb), akkor már jók vagyunk, működik a Nette applikációnk :)
 
@@ -51,12 +51,27 @@ A Nette framework felépítése:
 	*A [router](https://doc.nette.org/cs/2.4/routing) a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).*
 
 
-### Technikai kitérő: milyen automatizációs logikával hívja be a presenter a View-t?
+### 2.1 Technikai kitérő 1: mi az a presenter és mi az a view? Gyorstalpaló bevezető az MVP-be
+
+![Presenter és Latte a mappa struktúrában](http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf#46)
+
+A tutorial folytatása előtt röviden kitérek arra,
+Hasznos források lehetnek a témában:
+https://pla.nette.org/cs/navod-vytvarime-staticky-web 
+https://doc.nette.org/cs/2.4/quickstart (ez az eredeti Nette tutorial)
+https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013
+http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf
+http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf - 46.oldal
+
+
+
+### 2.2 Technikai kitérő 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?
 
 ![Presenter és Latte a mappa struktúrában](presenter-latte.png)
 
-A tutorial folytatása előtt röviden kitérek arra, hogy milyen logika mentén hívja be a presenter a hozzá tartozó View-t.
-Az app/presenters mappába fogjuk menteni a presentereinket. Az első két presenterünk a tutorialban HomepagePresenter és PostPresenter lesz, de a presenterek általános elnevezése az, hogy “AkármiPresenter”. A presenterek az objektum orientált programozásban megismert osztályok lesznek, ezért kezdődik a nevük nagy kezdőbetűvel.
+A tutorial folytatása előtt röviden kitérek arra is, hogy milyen logika mentén hívja be a presenter a hozzá tartozó View-t.
+
+**Az app/presenters mappába mantjük a presentereket.** Az első két presenter, amit majd elkészítünk a tutorial következő, 3. pontjában, a HomepagePresenter és PostPresenter lesz. A presenterek általános elnevezése “AkármiPresenter”. A presenterek az objektum orientált programozásban megismert osztályok, ezért kezdődik a nevük nagy kezdőbetűvel.
 
 
 A továbbiakban a view-ket template-nek vagy latte fájloknak fogjuk nevezni (hogy ne vesszünk el a szakkifejezések rengetegében mindjárt a legelején)
