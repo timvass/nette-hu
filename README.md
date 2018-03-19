@@ -36,7 +36,7 @@ A Nette framework felépítése:
 
 ![Nette framework felépítés](felepites.jpg)
 
-* **nette-blog/www** könyvtárunk lesz az, ami majd kívülről bárki számára elérhető. Ebben található az index.php, amiben csak az az egy parancs van, hogy az összes Nette tartalmat behívja az app/bootstrapon keresztül. A www mappa szolgál az összes front-endet alkotó eszköz mentésére. A képek mentésére, a JavaScript fájlok, CSS-ek, inokok, fontok és más fájlok elhelyezésére. Csak ez az egy mappa lesz majd nyilvános, úgyhogy a készülő applikációnk gyökérkönyvtárát majd úgy állítjuk be, hogy ide mutasson (ezt az Apache beállításánál lehet megoldani a .htaccess-ben, de ezt majd később állítjuk be).
+* **nette-blog/www** könyvtárunk lesz az, ami majd kívülről bárki számára elérhető. Ebben található az index.php, amiben csak az az egy parancs van, hogy az összes Nette tartalmat behívja az app/bootstrap.php fájlon keresztül. A www mappa szolgál az összes böngészőkliens számára elérhető fájl mentésére, úgy mint képek, JavaScript fájlok, stylesheetek, ikonok, fontok és más fájlok elhelyezésére. Csak ez az egy mappa lesz majd nyilvános, úgyhogy a készülő applikációnk gyökérkönyvtárát majd úgy állítjuk be, hogy ide mutasson.
 
 * **app/ mappa** -ban fogunk az időnk nagy részében az dolgozni. Ebben a mappában található a bootstrap.php (https://doc.nette.org/en/2.4/bootstrap). Az előbb már említettük, hogy a nyilvánosan elérhető index.php a nyilvánosság előtt rejtve levő bootstrap php-t hívja be. **A bootstrap.php** az applikációnk indítókulcsa. A bootstrap:
 	
@@ -46,7 +46,7 @@ A Nette framework felépítése:
 	
 	* A bootstrap.php-ből tölt be a speciális Nette **debuggoló eszköz a [Tracy](https://tracy.nette.org/cs/)** 	
 
-	* Ez gondoskodik a **cache-elésről** és a **routolást** is ez biztosítja be. A routolás azt jelenti, hogy, az emberek számára könnyebben emészthető (és jobb SEO helyezést jelentő) url címeket is tud készíteni a Nette. 	
+	* Ez gondoskodik a **cache-elésről** és a **routolást** is ez biztosítja be. A routolás azt jelenti, hogy a request URL-ben megadott (sokszor emberek számára könnyebben emészthető és akár jobb SEO helyezést jelentő) címeket a Nette a hozzájuk rendelt Presenterhez irányítja az egyes bejövő lekérések esetében. 	
 		
 	*A [router](https://doc.nette.org/cs/2.4/routing) a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).*
 
