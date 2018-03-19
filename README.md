@@ -4,7 +4,7 @@
 
 ### 1. Első lépések
 
-* A legelső teendő indulás előtt egy gyors ellenőrzés, hogy a használt szerverünk teljesíti-e a Nette Framework futtatásához szükséges feltételeket (minimum 5.6.0-s PHP, a teljes feltételrendszer itt található: [Nette Requirements](https://doc.nette.org/en/2.4/requirements). Valószínűleg minden rendben lesz vele, de a biztonság kedvéért ellenőrizzük le, megéri.
+* A legelső teendő indulás előtt egy gyors ellenőrzés, hogy a használt szerverünk teljesíti-e a Nette Framework futtatásához szükséges feltételeket (minimum 5.6.0-s PHP, a teljes feltételrendszer itt található: [Nette Requirements](https://doc.nette.org/en/2.4/requirements). Valószínűleg minden rendben lesz vele, de a biztonság kedvéért ellenőrizzük le, megéri. A tutorial Apache 2.4-re készült.
 * A Nette Framework letöltéséhez a hivatalosan javasolt és ajánlott letöltési módszer a Composerrel való letöltés https://doc.nette.org/en/2.4/composer. Ha még nem találkoztunk a Composerrel, szánjunk rá pár percet, hogy megismerjük használatát. A Composer egy kifejezetten egyszerű és hasznos eszköz, ez a legelterjedtebb külső függőségeket kezelő program PHP-ra (PHP dependency manager). Mindent szükséges infót megtalálunk róla a [dokumentációjában]( https://getcomposer.org/doc/). Ha már a Composer dokumentációja alapján installáltuk a Composert a gépünkre (kezdők inkább globálisan installálják), akkor 
 	* Megkeressük a webszerverünk gyökérkönyvtárát (ez általában ott van, ahova az apache vagy az nginx webszervert is telepítettük, ha nem tudjuk hol van, akkor keressük ki az interneten. A kereséshez ajánlott kulcsszavak: webserver root directory, document root vagy web root. (pl. /var/www, vagy C:/InetPub is lehet). 
 	* Megnyitjuk a parancssor programot (Windowsnál Accesoires->Command Prompt, Mac esetében Terminal ) 
@@ -54,7 +54,7 @@ A Nette framework felépítése:
 ### *2.1 Technikai kitérő 1: mi az a presenter és mi az a view? Gyorstalpaló MVP*
 
 * Hasznos források a témában:
-	* https://doc.nette.org/cs/2.4/quickstart (ez az eredeti Nette tutorial)
+	* https://doc.nette.org/en/2.4/quickstart (ez az eredeti Nette tutorial)
 	* https://pla.nette.org/cs/navod-vytvarime-staticky-web 
 	* https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013
 	* http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf
