@@ -60,7 +60,7 @@ A Nette framework felépítése:
 	* http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf
 	* http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf - 46.oldal
 
-A Nette egy rétegzett architektúrájú, azon belül pedig MVC/MVP tervezési mintán alapuló PHP web framework. Azok számára lehet érdekes következő lépcsőfok a megismerése, akik: 
+* A Nette egy rétegzett architektúrájú, azon belül pedig MVC/MVP tervezési mintán alapuló PHP web framework. Azok számára lehet érdekes következő lépcsőfok a megismerése, akik: 
 	* ismerik a PHP-t,
 	* ismerik az objektum orientált programozás lényegét.
 
