@@ -51,17 +51,14 @@ A Nette framework felépítése:
 	*A [router](https://doc.nette.org/cs/2.4/routing) a SEO szempontból fontos duplázott URL címek 	problémáját is automatikusan megoldja helyettünk – ha az adott 	oldalra több cím is mutat, akkor többit a Nette framework 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell).*
 
 
-### 2.1 Technikai kitérő 1: mi az a presenter és mi az a view? Gyorstalpaló bevezető az MVP-be
+### 2.1 Technikai kitérő 1: mi az a presenter és mi az a view? Gyorstalpaló MVP
 
-![Presenter és Latte a mappa struktúrában](http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf#46)
-
-A tutorial folytatása előtt röviden kitérek arra,
-Hasznos források lehetnek a témában:
-https://pla.nette.org/cs/navod-vytvarime-staticky-web 
-https://doc.nette.org/cs/2.4/quickstart (ez az eredeti Nette tutorial)
-https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013
-http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf
-http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf - 46.oldal
+* Hasznos források a témában:
+	* https://doc.nette.org/cs/2.4/quickstart (ez az eredeti Nette tutorial)
+	* https://pla.nette.org/cs/navod-vytvarime-staticky-web 
+	* https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013
+	* http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf
+	* http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf - 46.oldal
 
 
 
