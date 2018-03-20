@@ -115,7 +115,7 @@ A továbbiakban a view-ket template-nek vagy latte fájloknak is fogjuk nevezni 
 
 A Web Project már tartalmaz egy előkészített kezdőoldalat. Ennek tartalmát töröljük ki még azelőtt, hogy bármit is programozni kezdenénk. Ezután az `app/presenters/templates/Homepage/default.latte` -ba írjuk be a "Hello World" feliratot.
 
-[Nette kezdőoldal Hello World felirattal](https://files.nette.org/git/doc-2.4/quick-hello.png)
+![Nette kezdőoldal Hello World felirattal](https://files.nette.org/git/doc-2.4/quick-hello.png)
 
 
 
