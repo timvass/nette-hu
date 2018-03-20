@@ -31,13 +31,13 @@ Ha valami miatt nem tudunk Composert használni, letölthetjük manuálisan is a
 
 
 
-### 2. Főoldal (en: The Welcome Page)
+#### 1.1. Főoldal (en: The Welcome Page)
 
 Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírjuk a böngészőnkbe a `http://localhost/nette-blog/www/` címet, és a "Congratulations!" című ablakot látjuk (fotó lejjebb), akkor már jók vagyunk, működik a Nette applikációnk :)
 
 ![Nette welcome - Congratulations!](https://files.nette.org/git/doc-2.4/welcome-620.jpg)
 
-A Nette framework felépítése:
+#### 1.2. A Web projekt felépítése (en: Web Project's Content)
 
 ![Nette framework felépítés](felepites.jpg)
 
@@ -55,7 +55,7 @@ A Nette framework felépítése:
 A [router](https://doc.nette.org/en/2.4/routing) a SEO szempontból fontos duplázott URL címek problémáját is automatikusan megoldja helyettünk – ha az adott tartalomra több cím is mutat, a Nette framework az elsőt kiindulónak vagy "kanonikusnak" jelöli, a többit pedig 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell). A kanonizációt a presenter API végzi és automatikusan be van kapcsolva. AJAXNÁL és POST lekérdezésnél nincs átirányítás. Részletek a dokumentáció [router - SEO és kanonizáció](https://doc.nette.org/en/2.4/routing#toc-seo-and-canonicalization) pontjánál*
 
 
-#### *2.1 TimVass: Technikai kiegészítések kezdőknek, nem az eredeti Nette tutorialból 1: mi az a presenter és mi az a view? Gyorstalpaló MVP*
+##### *1.2.1 TimVass: Technikai kiegészítések kezdőknek, nem az eredeti Nette tutorialból 1: mi az a presenter és mi az a view? Gyorstalpaló MVP*
 
 * Hasznos források a témában:
 	* https://doc.nette.org/en/2.4/quickstart (ez az eredeti Nette tutorial)
@@ -83,7 +83,7 @@ Még kidolgozottabb architektúra az MVC, amely a webfejlesztésben egy igen gya
 Tehát junior szavakkal a lényeg, hogy a **Nette egy MVP framework. Az MVP a model, view és presenter szavak rövidítése.** A Quickstart tutorial elején csak presenterrel és view-vel fogunk dolgozni, a tutorial vége felé már modelünk is lesz. **A view a front-end réteg. A model réteg tárolja az üzleti logikát és az kommunikál majd az adatbázissal. A presenterben pedig minden más lesz, elsősorban a front-end rétegünk működéséhez tartozó logika.** Hogy mi a különbség az MVC és az MVP modellek Presentere és Controllere közt? Maga David Grudl a Nette vezető fejlesztője és atyja is csak annyit szokott mondani az előadásain, hogy “hasonló a kettő”. 
 
 
-#### *2.2 TimVass: Technikai kiegészítések  kezdőknek, nem az eredeti Nette tutorialból 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?*
+##### *1.2.2 TimVass: Technikai kiegészítések  kezdőknek, nem az eredeti Nette tutorialból 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?*
 
 ![Presenter és Latte a mappa struktúrában](presenter-latte.png)
 
@@ -104,5 +104,4 @@ A továbbiakban a view-ket template-nek vagy latte fájloknak is fogjuk nevezni 
 	* app/presenters/AkarmiPresenter.php -ban lévő “public function renderBarmi()” behívja először az 	
 	* app/presenters/templates/@layout.latte-t és ezután az 
 	* app/presenters/templates/Akármi/barmi.latte -t.
-
 
