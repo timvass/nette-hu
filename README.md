@@ -7,13 +7,12 @@
 * A legelső teendő indulás előtt egy gyors ellenőrzés, hogy a használt szerverünk teljesíti-e a Nette Framework futtatásához szükséges feltételeket (minimum 5.6.0-s PHP, a teljes feltételrendszer itt található: [Nette Requirements](https://doc.nette.org/en/2.4/requirements). Valószínűleg minden rendben lesz vele, de a biztonság kedvéért ellenőrizzük le, megéri. A tutorial Apache 2.4-re készült.
 * A Nette Framework letöltéséhez a hivatalosan javasolt és ajánlott letöltési módszer a Composerrel való letöltés https://doc.nette.org/en/2.4/composer. Ha még nem találkoztunk a Composerrel, szánjunk rá pár percet, hogy megismerjük használatát. A Composer egy kifejezetten egyszerű és hasznos eszköz, ez a legelterjedtebb külső függőségeket kezelő program PHP-ra (PHP dependency manager). Mindent szükséges infót megtalálunk róla a [dokumentációjában]( https://getcomposer.org/doc/). Ha a Composer dokumentációja alapján installáltuk a Composert a gépünkre, akkor: 
 
-(TimVass kiegészítése: kezdők inkább a globális installációt válasszák, ha nem tudják mi a különbség a globális és a lokális installálás közt)
+(TimVass: kezdők inkább a globális installációt válasszák, ha nem tudják mi a különbség a globális és a lokális installálás közt)
 
-* Megkeressük a webszerverünk helyi gyökérkönyvtárát (pl. /var/www, vagy C:/InetPub is lehet). (TimVass: Ez általában ott van, ahova az apache vagy az nginx webszervert is telepítettük, ha nem tudjuk hol van, akkor keressük ki az interneten. A kereséshez ajánlott kulcsszavak: webserver root directory, document root vagy web root. . 
-* Megnyitjuk a parancssor programot ( Windowsnál Accesoires->Command Prompt, Mac esetében Terminal ) 
-* Belépünk a parancssorban a gyökérkönyvtárba 
-)
-* Beírjuk a következő utasítást:
+1. Megkeressük a webszerverünk helyi gyökérkönyvtárát (pl. /var/www, vagy C:/InetPub is lehet). (TimVass: Ez általában ott van, ahova az apache vagy az nginx webszervert is telepítettük, ha nem tudjuk hol van, akkor keressük ki az interneten. A kereséshez ajánlott kulcsszavak: webserver root directory, document root vagy web root. . 
+1. (Timvass: Megnyitjuk a parancssor programot Windowsnál Accesoires->Command Prompt, Mac esetében Terminal ) 
+1. (Timvass: Belépünk a parancssorban a gyökérkönyvtárba)
+1. Beírjuk a következő utasítást:
 
 	`composer create-project nette/web-project nette-blog`
 
