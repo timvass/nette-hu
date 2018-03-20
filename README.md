@@ -85,7 +85,7 @@ Tehát junior szavakkal a lényeg, hogy a **Nette egy MVP framework. Az MVP a mo
 
 A tutorial folytatása előtt röviden kitérek arra is, hogy milyen logika mentén hívja be a presenter a hozzá tartozó View-t.
 
-**Az app/presenters mappába mantjük a presentereket.** Az első két presenter, amit majd elkészítünk a tutorial következő, 3. pontjában, a HomepagePresenter és PostPresenter lesz. A presenterek általános elnevezése “AkármiPresenter”. A presenterek az objektum orientált programozásban megismert osztályok, ezért kezdődik a nevük nagy kezdőbetűvel.
+**Az app/presenters mappába mentjük a presentereket.** Az első két presenter, amit majd elkészítünk a tutorial következő, 3. pontjában, a HomepagePresenter és PostPresenter lesz. A presenterek általános elnevezése “AkármiPresenter”. A presenterek az objektum orientált programozásban megismert osztályok, ezért kezdődik a nevük nagy kezdőbetűvel.
 
 A továbbiakban a view-ket template-nek vagy latte fájloknak is fogjuk nevezni (Ezt tisztázzuk, hogy ne vesszünk el a szakkifejezések rengetegében mindjárt a legelején)
 
