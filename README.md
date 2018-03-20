@@ -1,5 +1,5 @@
 	 	 	
-# Nette Framework Quickstart - első applikációm
+# Nette Framework Quickstart - első applikációm - Nette Web Project
 ## A hivatalos dokumentáció fordítása cseh nyelvről, kezdőbarát megjegyzésekkel kiegészítve és senior fejlesztők által lektorálva (nagyon nagy köszi mindenkinek :) )
 
 ### 1. Első lépések (en: Getting started)
@@ -9,7 +9,7 @@
 
 (TimVass: kezdők inkább a globális installációt válasszák, ha nem tudják mi a különbség a globális és a lokális installálás közt)
 
-1. Megkeressük a webszerverünk helyi gyökérkönyvtárát (pl. /var/www, vagy C:/InetPub is lehet). (TimVass: Ez általában ott van, ahova az apache vagy az nginx webszervert is telepítettük, ha nem tudjuk hol van, akkor keressük ki az interneten. A kereséshez ajánlott kulcsszavak: webserver root directory, document root vagy web root. . 
+1. Megkeressük a webszerverünk helyi gyökérkönyvtárát (pl. /var/www, vagy C:/InetPub is lehet). (TimVass: Ez általában ott van, ahova az apache vagy az nginx webszervert is telepítettük, ha nem tudjuk hol van, akkor keressük ki az interneten. A kereséshez ajánlott kulcsszavak: webserver root directory, document root vagy web root. Bár szerintem egyszerűen csak navigáljunk abba a mappába, ahová a php projektjeinket szoktuk menteni és jók leszünk :) ). 
 1. (Timvass: Megnyitjuk a parancssor programot Windowsnál Accesoires->Command Prompt, Mac esetében Terminal ) 
 1. (Timvass: Belépünk a parancssorban a gyökérkönyvtárba)
 1. Beírjuk a következő utasítást:
@@ -37,6 +37,8 @@ Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírj
 
 ![Nette welcome - Congratulations!](https://files.nette.org/git/doc-2.4/welcome-620.jpg)
 
+
+
 #### 1.2. A Web projekt felépítése (en: Web Project's Content)
 
 ![Nette framework felépítés](felepites.jpg)
@@ -53,6 +55,7 @@ Ha letöltöttük a gépünkre a Nette Quickstartot a fentiek szerint és beírj
 )
 
 A [router](https://doc.nette.org/en/2.4/routing) a SEO szempontból fontos duplázott URL címek problémáját is automatikusan megoldja helyettünk – ha az adott tartalomra több cím is mutat, a Nette framework az elsőt kiindulónak vagy "kanonikusnak" jelöli, a többit pedig 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell). A kanonizációt a presenter API végzi és automatikusan be van kapcsolva. AJAXNÁL és POST lekérdezésnél nincs átirányítás. Részletek a dokumentáció [router - SEO és kanonizáció](https://doc.nette.org/en/2.4/routing#toc-seo-and-canonicalization) pontjánál*
+
 
 
 ##### *1.2.1 TimVass: Technikai kiegészítések kezdőknek, nem az eredeti Nette tutorialból 1: mi az a presenter és mi az a view? Gyorstalpaló MVP*
@@ -83,6 +86,7 @@ Még kidolgozottabb architektúra az MVC, amely a webfejlesztésben egy igen gya
 Tehát junior szavakkal a lényeg, hogy a **Nette egy MVP framework. Az MVP a model, view és presenter szavak rövidítése.** A Quickstart tutorial elején csak presenterrel és view-vel fogunk dolgozni, a tutorial vége felé már modelünk is lesz. **A view a front-end réteg. A model réteg tárolja az üzleti logikát és az kommunikál majd az adatbázissal. A presenterben pedig minden más lesz, elsősorban a front-end rétegünk működéséhez tartozó logika.** Hogy mi a különbség az MVC és az MVP modellek Presentere és Controllere közt? Maga David Grudl a Nette vezető fejlesztője és atyja is csak annyit szokott mondani az előadásain, hogy “hasonló a kettő”. 
 
 
+
 ##### *1.2.2 TimVass: Technikai kiegészítések  kezdőknek, nem az eredeti Nette tutorialból 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?*
 
 ![Presenter és Latte a mappa struktúrában](presenter-latte.png)
@@ -105,3 +109,16 @@ A továbbiakban a view-ket template-nek vagy latte fájloknak is fogjuk nevezni 
 	* app/presenters/templates/@layout.latte-t és ezután az 
 	* app/presenters/templates/Akármi/barmi.latte -t.
 
+
+
+#### 1.3. Tiszta lap (en: Cleanup)
+
+A Web Project már tartalmaz egy előkészített kezdőoldalat. Ennek tartalmát töröljük ki még azelőtt, hogy bármit is programozni kezdenénk. Ezután az `app/presenters/templates/Homepage/default.latte` -ba írjuk be a "Hello World" feliratot.
+
+[Nette kezdőoldal Hello World felirattal](https://files.nette.org/git/doc-2.4/quick-hello.png)
+
+
+
+#### 1.4. Tracy a Nette debugger (en: Tracy debugger)
+
+A fejlesztésnél elengedhetetlenül fontos társunk lesz a[ Tracy](https://tracy.nette.org/en/). A Tracy segít mielőbb megtalálni és kijavítani a hibákat, logolja azokat, társunk lesz a változók kiiratásában (dump), méri az időt és a memóriaszükségletet. A Tracy a piacon található php diagnosztikához használt eszközök közt az élen jár. AJAX lekérdezések, XML-ek és képek esetében a FireLoggerrel tudjuk majd használni. Bővebben a Tracyről a dokumentáció[ Tracy](https://tracy.nette.org/en/) részében tudunk olvasni.
