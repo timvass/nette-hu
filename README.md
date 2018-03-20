@@ -121,4 +121,30 @@ A Web Project már tartalmaz egy előkészített kezdőoldalat. Ennek tartalmát
 
 #### 1.4. Tracy a Nette debugger (en: Tracy debugger)
 
-A fejlesztésnél elengedhetetlenül fontos társunk lesz a[ Tracy](https://tracy.nette.org/en/). A Tracy segít mielőbb megtalálni és kijavítani a hibákat, logolja azokat, társunk lesz a változók kiiratásában (dump), méri az időt és a memóriaszükségletet. A Tracy a piacon található php diagnosztikához használt eszközök közt az élen jár. AJAX lekérdezések, XML-ek és képek esetében a FireLoggerrel tudjuk majd használni. Bővebben a Tracyről a dokumentáció[ Tracy](https://tracy.nette.org/en/) részében tudunk olvasni.
+A fejlesztésnél elengedhetetlen társunkká válik majd a[ Tracy](https://tracy.nette.org/en/). A Tracy segít mielőbb megtalálni és kijavítani a bugokat, logolja a hibákat, társunk lesz a változók kiirásában (dump), méri az időt és a memóriaszükségletet. A Tracy az egyik legjobb piacon található php diagnosztikai eszköz. AJAX lekérdezések, XML-ek és képek esetében a FireLoggerrel tudjuk majd használni. Bővebben a Tracyről a dokumentáció[ Tracy](https://tracy.nette.org/en/) részében tudunk olvasni.
+
+Próbáljunk ki valami hibát előhívni az `app/presenters/HomepagePresenter.php` fájlban (például töröljük ki a renderDefault metódusban a public szó utolsó betűjét) és nézzük meg, mi történik. Megjelenik az értesítő oldal, amely a hibát érthetően részletezi.
+
+![Nette Tracy Parse Error](https://files.nette.org/git/doc-2.4/debugger-620.png)
+
+A Tracy nagyon nagy segítségünkre lesz, ha véletlenül hibázunk az applikáció kódjának írása közben. Figyeljük meg az képernyő jobb alsó sarkában az úszó debug panelt is, amely az applikáció működéséről lát el bennünket információval.
+
+![Nette Tracy System info](https://files.nette.org/git/doc-2.4/quick-tracy-info.png)
+
+Produkciós környezetben természetesen a Tracy kikapcsol és nem jelenít meg érzékeny információkat. Ilyenkor minden hiba a `log/` mappába kerül mentésre. Próbáljuk ki ezt is.Z `app/bootstrap.php` fájlban a következő sorból távolítsuk el a komment jelet és módosítsuk a metódus paraméterét `false`-ra. A kódunk ezután így néz majd ki: 
+`$configurator->setDebugMode(false); 
+$configurator->enableTracy(__DIR__ . '/../log');`
+
+Ha frissítjük az oldalat, a Tracy eltűnik. Helyette a következő hibaüzenet jelenik meg:
+
+![Nette Tracy Server Error](https://files.nette.org/git/doc-2.4/server-error-620.png)
+
+Ezután nézzünk be a `/log` mappába. A mappában található exception.log fájlban találjuk a hiba logot. (HTML fájlként lesz lementve, exception- kezdetű névvel).
+
+Tegyünk a komment jelet vissza a sor elejére: `// $configurator->setDebugMode(false);`. Ezzel a Tracy automatikusan debug módba lép a localhoston és minden más környezetben letiltja a debug módot.
+
+Kijavítjuk a hibát amit vétettünk és folytatjuk a web applikációnk fejlesztését a következő ponttal.
+
+
+
+### 2. A blog főoldala (en: Blog Home Page)
