@@ -17,11 +17,11 @@
 	`composer create-project nette/web-project nette-blog`
 
 
-(TimVass kiegészítése: Ez a parancs azt jelenti, hogy a Composer a saját [Packagist könyvtárából](https://packagist.org/packages/nette/web-project) letölti a nette/web-projectet és azt minden függőségével (dependency) és körülményével együtt bemásolja az általunk megadott nette-blog mappába. Vagy ha nincs még ilyen mappa a gyökérkönyvtárban (pl /var/www vagy C:/InetPub), akkor elkészíti. Igazából bármilyen nevet adhatnánk a projektnek, most nette-blognak nevezzük. )
+(TimVass: Ez a parancs azt jelenti, hogy a Composer a saját [Packagist könyvtárából](https://packagist.org/packages/nette/web-project) letölti a nette/web-projectet és azt minden függőségével (dependency) és körülményével együtt bemásolja az általunk megadott nette-blog mappába. Vagy ha nincs még ilyen mappa a gyökérkönyvtárban (pl /var/www vagy C:/InetPub), akkor elkészíti. Igazából bármilyen nevet adhatnánk a projektnek, most nette-blognak nevezzük. )
 
 Ha valami miatt nem tudunk Composert használni, letölthetjük manuálisan is a [githubról a Nette Web Projectet](https://github.com/nette/web-project/archive/preloaded.zip). Ezt letöltés után kicsomagoljuk, bemásoljuk a gyökérkönyvtárunkba és átnevezzük "nette-blog"-ra.* 
 
-(TimVass kiegészítése: Ha szeretnénk egy [parancssor gyorstalpalót](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything), mert mondjuk nem tudunk belépni a parancssor használatával a gyökérkönyvtárba, akkor keressünk egy tutorialt az interneten. Kulcsszavak: command line basics, getting to know the command line*)
+(TimVass: Ha szeretnénk egy [parancssor gyorstalpalót](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything), mert mondjuk nem tudunk belépni a parancssor használatával a gyökérkönyvtárba, akkor keressünk egy tutorialt az interneten. Kulcsszavak: command line basics, getting to know the command line*)
 
 * Ha Unix alapú rendszeren dolgozunk (pl. Mac OS X vagy Linux), akkor módosítanunk kell a webszerver jogait is: engedélyezni kell a temp és a log file-ok írását.
 
@@ -45,7 +45,7 @@ A Nette framework felépítése:
 
 * **app/** mappában fogunk az időnk nagy részében dolgozni. Ebben a mappában található a [bootstrap.php] (https://doc.nette.org/en/2.4/bootstrap) fájl, amely elindítja és konfigurálja az applikációt. Aktiválja az [autoloadingot](https://doc.nette.org/en/2.4/robotloader), beállítja a [debugger eszközt](https://tracy.nette.org/en/) és a [routolást](https://doc.nette.org/en/2.4/routing). 
 
-(TimVass megjegyzése: A nyilvánosan elérhető www/index.php a nyilvánosság előtt rejtve levő app/bootstrap php-t hívja be. **A bootstrap.php** az applikációnk indítókulcsa. A bootstrap:	
+(TimVass: A nyilvánosan elérhető www/index.php a nyilvánosság előtt rejtve levő app/bootstrap php-t hívja be. **A bootstrap.php** az applikációnk indítókulcsa. A bootstrap:	
 	* Behívja a **config.neon** és a **config.local.neon** 	beállításokat és azok alapján állítja be az applikációnkat 	(pl. az adatbázis beállításához a jelszónkat is innen veszi) 	
 	* Aktiválja a [Robot Loadert](https://doc.nette.org/en/2.4/robotloader), amit autoloadingnak is emlegetnek az eredeti dokumentációban. A Robot Loader miatt a Nettében **nem kell include-ot vagy require-t használni**. Ez az ügyes eszköz a Google robotjaihoz hasonlóan megnézi a megadott mappákat és cache-eli őket. Így nekünk csak be kell állítanunk azt a mappát, ahol megtalálja az applikációnkat és a mappát, ahova mentse a cache-elt adatokat.			
 	* A bootstrap.php-ből tölt be a speciális Nette **debuggoló eszköz, a [Tracy](https://tracy.nette.org/cs/)** 	
@@ -55,7 +55,7 @@ A Nette framework felépítése:
 A [router](https://doc.nette.org/en/2.4/routing) a SEO szempontból fontos duplázott URL címek problémáját is automatikusan megoldja helyettünk – ha az adott tartalomra több cím is mutat, a Nette framework az elsőt kiindulónak vagy "kanonikusnak" jelöli, a többit pedig 301-en keresztül irányítja át, ahogy azt a SEO szabályok szerint kell). A kanonizációt a presenter API végzi és automatikusan be van kapcsolva. AJAXNÁL és POST lekérdezésnél nincs átirányítás. Részletek a dokumentáció [router - SEO és kanonizáció](https://doc.nette.org/en/2.4/routing#toc-seo-and-canonicalization) pontjánál*
 
 
-#### *2.1 Technikai kiegészítések kezdőknek, nem az eredeti Nette tutorialból 1: mi az a presenter és mi az a view? Gyorstalpaló MVP*
+#### *2.1 TimVass: Technikai kiegészítések kezdőknek, nem az eredeti Nette tutorialból 1: mi az a presenter és mi az a view? Gyorstalpaló MVP*
 
 * Hasznos források a témában:
 	* https://doc.nette.org/en/2.4/quickstart (ez az eredeti Nette tutorial)
@@ -83,7 +83,7 @@ Még kidolgozottabb architektúra az MVC, amely a webfejlesztésben egy igen gya
 Tehát junior szavakkal a lényeg, hogy a **Nette egy MVP framework. Az MVP a model, view és presenter szavak rövidítése.** A Quickstart tutorial elején csak presenterrel és view-vel fogunk dolgozni, a tutorial vége felé már modelünk is lesz. **A view a front-end réteg. A model réteg tárolja az üzleti logikát és az kommunikál majd az adatbázissal. A presenterben pedig minden más lesz, elsősorban a front-end rétegünk működéséhez tartozó logika.** Hogy mi a különbség az MVC és az MVP modellek Presentere és Controllere közt? Maga David Grudl a Nette vezető fejlesztője és atyja is csak annyit szokott mondani az előadásain, hogy “hasonló a kettő”. 
 
 
-#### *2.2 Technikai kiegészítések  kezdőknek, nem az eredeti Nette tutorialból 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?*
+#### *2.2 TimVass: Technikai kiegészítések  kezdőknek, nem az eredeti Nette tutorialból 2: milyen automatizációs logikával hívja be a presenter a hozzá tartozó view-t?*
 
 ![Presenter és Latte a mappa struktúrában](presenter-latte.png)
 
