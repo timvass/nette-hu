@@ -59,6 +59,7 @@ A [router](https://doc.nette.org/en/2.4/routing) a SEO szempontból fontos dupl�
 * Hasznos források a témában:
 	* https://doc.nette.org/en/2.4/quickstart (ez az eredeti Nette tutorial)
 	* https://pla.nette.org/cs/navod-vytvarime-staticky-web 
+	* [Webtudor - Mi az az MVC](https://www.youtube.com/watch?v=9HbZhXq8DOg)
 	* https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013
 	* http://ik.elte.hu/karunkrol/digitkonyv/2016jegyzet/elte_szt_05.pdf
 	* http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf - 46.oldal
