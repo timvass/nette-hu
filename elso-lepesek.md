@@ -1,7 +1,7 @@
 ### 1. Első lépések (en: Getting started)
 
 * A legelső teendő indulás előtt egy gyors ellenőrzés, hogy a használt szerverünk teljesíti-e a Nette Framework futtatásához szükséges feltételeket (minimum 5.6.0-s PHP, a teljes feltételrendszer itt található: [Nette Requirements](https://doc.nette.org/en/2.4/requirements). Valószínűleg minden rendben lesz vele, de a biztonság kedvéért ellenőrizzük le, megéri. A tutorial Apache 2.4-re készült.
-* A Nette Framework letöltéséhez a hivatalosan javasolt és ajánlott letöltési módszer a Composerrel való letöltés https://doc.nette.org/en/2.4/composer. Ha még nem találkoztunk a Composerrel, szánjunk rá pár percet, hogy megismerjük használatát. A Composer egy kifejezetten egyszerű és hasznos eszköz, ez a legelterjedtebb külső függőségeket kezelő program PHP-ra (PHP dependency manager). Mindent szükséges infót megtalálunk róla a [dokumentációjában]( https://getcomposer.org/doc/). Ha a Composer dokumentációja alapján installáltuk a Composert a gépünkre, akkor: 
+* A Nette Framework letöltéséhez a hivatalosan javasolt és ajánlott letöltési módszer a Composerrel való letöltés. A hivatalos Nette dokumentáció is kitér a [Composer használatra](https://doc.nette.org/en/2.4/composer). Ha még nem találkoztunk a Composerrel, szánjunk rá pár percet, hogy megismerjük használatát. A Composer egy kifejezetten egyszerű és hasznos eszköz, ez a legelterjedtebb külső függőségeket kezelő program PHP-ra (PHP dependency manager). Mindent szükséges infót megtalálunk róla a [dokumentációjában]( https://getcomposer.org/doc/). Ha a Composer dokumentációja alapján installáltuk a Composert a gépünkre, akkor: 
 
 (TimVass: kezdők inkább a globális installációt válasszák, ha nem tudják mi a különbség a globális és a lokális installálás közt)
 
@@ -105,6 +105,25 @@ A továbbiakban a view-ket template-nek vagy latte fájloknak is fogjuk nevezni 
 	* app/presenters/AkarmiPresenter.php -ban lévő “public function renderBarmi()” behívja először az 	
 	* app/presenters/templates/@layout.latte-t és ezután az 
 	* app/presenters/templates/Akármi/barmi.latte -t.
+
+
+##### *1.2.3 TimVass: Melyik Nette csomag mit tartalmaz? (2018.3.29)*
+
+A **Web Projecttel** egy presentert és egy View-t (.latte file-t) telepítünk és a tutorial kezdéséhez egy biztonságosan előkészített "alapot kapunk". Ebben a csomagban nincs Model, azt a tutorial folyamán saját magunk írjuk meg. A Web Project ez az egyetlen teljes Nette verzió, amelyben a PHP-t a composer file-ban "lebutítják". Ez azért történt, mivel gyakori kezdő probléma volt, hogy az elkészült projektet a szolgáltató alacsonyabb PHP-n futó szerverére nem sikerült feltelepíteni.
+
+A haladó csomag az ún. **Sandbox**, amelyben már Model, egy autentifikáció is van telepítve, valamint "form factory" is.
+
+A pro csomag pedig az **Application**, amelyben egyáltalán semmi sincs előkészítve, de az aktuális legújabb verziót ezzel tudjuk letölteni magunknak - még a fejlesztés alatt lévő nem stabil, alpha verziót is.
+
+
+|      **Verzió**         |   **Web Project**     |     **Sandbox**                              |   **Application**      |
+| ----------------------- |-----------------------|----------------------------------------------|------------------------|
+| Packagist               | nette/web-project     | nette/sandbox                                | nette/application      |
+| Nette verzió            | 2.4                   | 2.4.4                                        | 2.4.11 (3.0 alpha is)  |
+| Maximális php limit     | PHP 5.6               | -                                            | -                      |
+| Minimális php limit     | -                     | PHP 7.1                                      | PHP 7.1                |
+| Stabil vagy dev verzió  | Stable                |                                              |                        |
+| Tartalom                | app(1presenter,1view) | app(3p,3v,1M + bejelentkezés,formfactory )   | nincs, zöld mező       |
 
 
 
